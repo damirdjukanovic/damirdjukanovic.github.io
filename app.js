@@ -47,7 +47,7 @@ mongoose.connect(dbUrl, {useNewUrlParser: true, useUnifiedTopology: true})
 
 
 app.get("/", (req, res) => {
-  res.render("customer/index");
+  res.render("customer/landing");
 });
 
 
