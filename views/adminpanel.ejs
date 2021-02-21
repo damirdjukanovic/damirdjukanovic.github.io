@@ -1,0 +1,40 @@
+<%- include('./partials/header.ejs') %>
+
+<section class="admin-panel">
+  <div class="container">
+    <h3>Admin panel - <%= user.name %></h3>
+    <div class="d-flex flex-row justify-content-between align-items-center top-row-admin">
+      <h5>Products</h5>
+      <a id="create-product-button" href="/createproduct">New product</a>
+    </div> 
+    <div class="d-flex flex-row justify-content-between align-items-end row-admin">
+      <p id="p-admin-1" class="p-admin">Title</p>
+      <p class="p-admin p-admin-2">Price</p>
+      <p class="p-admin p-admin-3">Edit</p>
+      <p class="p-admin p-admin-4">Delete</p>
+    </div>
+    <hr id="main-hr">
+    <% if(user.products.length > 0) {
+        result.forEach((product) => {
+          user.products.forEach((item) => {
+            if(item.id == product._id) { %>
+              <div class="d-flex flex-row justify-content-between align-items-center">
+                <p class="prod-name-admin"><%= product.name %></p>
+                <p class="p-admin-2 prod-name-admin"><%= product.price %></p>
+                <a class="edit-product-button" href="/product/<%= product._id %>/edit">Edit</a>
+                <form id="admin-form" action="/product/<%= product._id %>/delete" method="POST">
+                  <button id="dlt-btn" type="submit"><a class="delete-product-button">Delete</a></button>
+                </form>
+              </div>
+              <hr>
+          <%  }
+          });
+        }); 
+      } else { %>
+      <p>You dont have any products</p>
+    <% } %>    
+  </div>
+</section>       
+    
+
+<%- include('./partials/footer.ejs') %>

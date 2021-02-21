@@ -1,0 +1,52 @@
+<%- include('./partials/header.ejs') %>
+
+<% let totalPrice = 0;
+   let itemQuantity = 0;
+   let productPrice = 0
+   if(items.length !== 0) {
+  for (let item of items) {
+    productPrice = item.product.price;
+    totalPrice += item.quantity * productPrice;
+    itemQuantity += item.quantity;
+  } } %>
+<section class="cart">
+  <div class="container">
+    <h1 class="carth1">Shopping cart</h1>
+    <div class="row">
+      <div class="col-12 col-lg-7">
+        <% if(items.length !== 0) {
+        items.forEach((item) => { %>
+        <div class="d-flex flex-row cartrow">
+          <img class="cartimg" src="data:image/jpg;base64, <%= item.product.image %>" alt="">
+          <div class="d-flex flex-column cart-col">
+            <p class="cartp carttopp"><%= item.product.name %></p>
+            <p class="cartp">$ <%= item.product.price %></p>
+            <p class="cartp cartbottomp">Quantity: <%= item.quantity %></p>
+          </div>
+          <form method="POST" action="/products/delete/<%= item.id %>">
+            <button class="btn cartbtn"><i class='bx bx-trash' ></i><span>Remove</span></button>
+          </form>  
+        </div>
+        <% }) }
+        else { %>
+          <h3>No products added</h3>
+       <% } %>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="total">
+          <div class="d-flex flex-row">
+            <h5 class="carth5 carth5top">Total price:</h5> <h5 class="carth5top totalpriceh5">$<%= totalPrice.toFixed(2) %></h5>
+          </div>
+          <div class="d-flex flex-row">
+            <h5 class="carth5 carth5bot">Number of items:</h5> <h5 class="carth5bot quantityh5"><%= itemQuantity%></h5>
+          </div>
+          <div class="d-flex flex-row">
+           <button class="checkoutbtn"> <a href="/cart/payment">Checkout</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('./partials/footer.ejs') %>

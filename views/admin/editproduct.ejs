@@ -1,0 +1,68 @@
+<%- include('../partials/header.ejs') %>
+
+<% const getError = (errors, prop) => {
+  try {
+     return errors.mapped()[prop].msg
+   } catch (err) {
+     return ''; 
+   }  
+  } %>
+
+
+<section class="edit">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 d-md-inline col-md-6">
+        <div class="view-img-wrapper">
+          <img class="view-img" src="data:image/jpg;base64, <%= product.image %>" alt="">
+        </div>
+      </div>
+      <div class="col-12 col-md-6 justify-content-center">
+        <div class="edit-row-right">
+          <form action="/product/<%= product._id %>/edit" method="POST" enctype="multipart/form-data">
+            <div>
+              <label>Product name</label>
+              <input type="text" name="name" class="form-control" value="<%= product.name %>">
+              <p class="errMsg"><%= getError(errors, 'name') %></p>
+            </div>
+            <div>
+              <label for="nameOfTheCompany">Price</label>
+              <input type="text" name="price" class="form-control" value="<%= product.price %>">
+              <p class="errMsg"><%= getError(errors, 'price') %></p>
+            </div>
+            <div>
+              <label>Type of clothing</label>
+              <select name="wear" class="form-control" aria-label="Default select example">
+                <option selected value="shirts">Shirts</option>
+                <option value="jackets">Jackets</option>
+                <option value="shoes">Shoes</option>
+                <option value="jeans">Jeans</option>
+                <option value="hoodies">Hoodies</option>
+                <option value="eyewear">Eyewear</option>
+              </select>
+            </div>
+            <div>
+              <label>Gender</label>
+              <select name="gender" class="form-control" aria-label="Default select example">
+                <option value="men">Men</option>
+                <option value="women">Women</option>
+              </select>
+            </div>
+            <div>
+              <label>Image</label>
+              <br>
+              <input class="file-button" type="file" name="image" placeholder="image" value="<%= product.image %>">
+            </div>
+            <div style="text-align: center">
+              <button class="btn btn-primary edit-btn">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<%- include('../partials/footer.ejs') %>
+

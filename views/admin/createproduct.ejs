@@ -1,0 +1,66 @@
+<%- include('../partials/header.ejs') %>
+
+<% const getError = (errors, prop) => {
+  try {
+     return errors.mapped()[prop].msg
+   } catch (err) {
+     return ''; 
+   }  
+  } %>
+
+<section class="create">
+  <img class ="create-img1" src="/images/createproduct1.png" alt="">
+  <img class ="create-img2" src="/images/createproduct2.png" alt="">
+  <div class="container">
+    <div class="create-form">
+      <form action="/createproduct" method="POST" enctype="multipart/form-data">
+        <div>
+          <label>Product name</label>
+          <input name="name" class="form-control">
+          <p class="errMsg"><%= getError(errors, 'name') %></p>
+        </div>
+        <div>
+          <label>Price</label>
+          <input type="text" name="price" class="form-control">
+          <p class="errMsg"><%= getError(errors, 'price') %></p>
+        </div>
+        <div>
+          <label>Type of clothing</label>
+          <select name="wear" class="form-control" aria-label="Default select example">
+            <option selected value="shirts">Shirts</option>
+            <option value="jackets">Jackets</option>
+            <option value="shoes">Shoes</option>
+            <option value="jeans">Jeans</option>
+            <option value="hoodies">Hoodies</option>
+            <option value="eyewear">Eyewear</option>
+          </select>
+        </div>
+        <div>
+          <label>Gender</label>
+          <select name="gender" class="form-control" aria-label="Default select example">
+            <option value="men">Men</option>
+            <option value="women">Women</option>
+          </select>
+        </div>
+        <div>
+          <label>Description</label>
+          <textarea name="description" class="form-control create-textarea" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <p class="errMsg"><%= getError(errors, 'description') %></p>
+        </div>
+        <div>
+          <label>Image</label>
+          <br>
+          <input style="margin-top: 5px; margin-bottom: 5px;" type="file" name="image" placeholder="image">
+           <p class="errMsg"><%= getError(errors, 'image') %></p> 
+        </div>
+        <div style="text-align: center">
+          <button class="btn btn-primary edit-btn">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section> 
+
+
+<%- include('../partials/footer.ejs') %>
+

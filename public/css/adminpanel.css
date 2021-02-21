@@ -1,0 +1,192 @@
+.admin-panel {
+  padding-top: 70px;
+  padding-bottom: 175px;
+  position:relative;
+  
+}
+
+.admin-panel h3 {
+  padding-bottom: 20px;
+}
+
+#create-product-button {
+  color: white;
+  padding: 10px 20px;
+  background-color: #33a532;
+  border-radius: 15px;
+}
+
+.edit-product-button {
+  position: absolute;
+  left: 65%;
+  color: white;
+  padding: 8px 16px;
+  width: 82.84px;
+  text-align: center;
+  background-color: lightblue;
+  border-radius: 15px;
+}
+
+.edit-product-button:hover {
+  color: white;
+  text-decoration:none;
+}
+
+.p-admin-2 {
+  position: absolute;
+  left: 45%;
+}
+.p-admin-3 {
+  position: absolute;
+  left: 66.8%;
+}
+.p-admin-4 {
+  position: absolute;
+  left: 81%;
+}
+
+#admin-form {
+  margin-top: -25px;
+  padding: 0;
+}
+
+
+.delete-product-button {
+  position: absolute;
+  left: 80%;
+  color: white;
+  text-align: center;
+  padding: 8px 16px;
+  background-color: lightcoral;
+  border-radius: 15px;
+  color: white;
+  text-decoration:none;
+}
+
+.delete-product-button:hover {
+  color: white;
+  text-decoration:none;
+}
+
+
+.top-row-admin {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.row-admin {
+  margin-top: 30px;
+}
+
+#main-hr {
+  padding-top: 0px;
+  margin-bottom: 35px;
+  height: 10px;
+  border: 0;
+  box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+#dlt-btn {
+  border: none;
+  outline:none;
+}
+
+button:hover,
+button:focus {
+    background: none;
+    outline: none;
+}
+
+.p-admin {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  font-weight: 500;
+}
+
+.admin-panel p {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+/* EDIT */
+
+.edit {
+  padding-top: 80px;
+  padding-bottom: 120px;
+}
+
+
+.edit-row-right {
+  width: 90%; 
+  margin: 0 auto;
+
+}
+
+.file-button {
+  margin-top: 5px;
+}
+
+.edit-btn {
+  margin-top: 25px;
+  border-radius: 30px;
+  width: 150px;
+  height: 50px;
+}
+@media (max-width: 768px) {
+
+  .prod-name-admin {
+    font-size: 0.9em;
+  }
+
+  .edit {
+    padding-top: 50px;
+  }
+
+  .edit-product-button {
+    padding: 6px 13px;
+    position: absolute;
+    left: 60%;
+    width: 67px;
+    font-size: 13px;
+  }
+
+  .delete-product-button {
+    padding: 6px 13px;
+    width: 67px;
+    font-size: 13px;
+
+  }
+
+
+  #admin-form {
+    margin-top: -19px;
+    padding: 0;
+  }
+
+  .p-admin-3 {
+    position: absolute;
+    left: 63%;
+  }
+
+  .top-row-admin {
+    margin-bottom: 40px;
+    margin-top: 80px;
+  }
+
+  #create-product-button {
+   
+    padding: 8px 16px;
+    font-size: 15px;
+  }
+
+  .admin-panel h3 {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+ 
+}
